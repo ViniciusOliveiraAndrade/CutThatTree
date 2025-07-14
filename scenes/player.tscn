@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbyou2iiibjux"]
+
+[ext_resource type="Texture2D" uid="uid://i3l7rrkqb5v4" path="res://assets/lumberjack2.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cbn3u8kpgoc17" path="res://scripts/player.gd" id="1_g2els"]
+
+[node name="CharacterBody2D" type="Node2D"]
+script = ExtResource("1_g2els")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_3vyb7")
+hframes = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

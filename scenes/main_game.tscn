@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp4k0grsg7k0v"]
+
+[ext_resource type="Script" uid="uid://bwkhcudwmufil" path="res://scripts/main_game.gd" id="1_ykeeq"]
+[ext_resource type="PackedScene" uid="uid://c4vogswv1i116" path="res://scenes/tree_node.tscn" id="1_yx7mw"]
+[ext_resource type="PackedScene" uid="uid://bbyou2iiibjux" path="res://scenes/player.tscn" id="2_ykeeq"]
+[ext_resource type="PackedScene" uid="uid://cb4pawvtcdlxt" path="res://scenes/level.tscn" id="3_0rdsr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bm6p"]
+size = Vector2(162, 576)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dugkq"]
+size = Vector2(162, 576)
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_ykeeq")
+TREE_NODE = ExtResource("1_yx7mw")
+
+[node name="Level" parent="." instance=ExtResource("3_0rdsr")]
+
+[node name="TreeHolder" type="Node2D" parent="."]
+position = Vector2(0, 576)
+
+[node name="Player" parent="." instance=ExtResource("2_ykeeq")]
+position = Vector2(-43, 575)
+
+[node name="PlayerPositions" type="Node" parent="."]
+
+[node name="RightMark" type="Marker2D" parent="PlayerPositions"]
+position = Vector2(195, 489)
+
+[node name="LeftMark" type="Marker2D" parent="PlayerPositions"]
+position = Vector2(123, 489)
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="Hud"]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 54.0
+offset_bottom = 37.0
+
+[node name="LeftB" type="TouchScreenButton" parent="Hud"]
+position = Vector2(81, 288)
+shape = SubResource("RectangleShape2D_6bm6p")
+
+[node name="RightB" type="TouchScreenButton" parent="Hud"]
+position = Vector2(243, 288)
+shape = SubResource("RectangleShape2D_dugkq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(162, 416)
+zoom = Vector2(1.8, 1.8)
+
+[connection signal="pressed" from="Hud/LeftB" to="." method="_on_left_b_pressed"]
+[connection signal="pressed" from="Hud/RightB" to="." method="_on_right_b_pressed"]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=4 uid="uid://cb4pawvtcdlxt"]
+
+[ext_resource type="Texture2D" uid="uid://ba1h477jbssem" path="res://assets/background2.png" id="1_mx8sn"]
+[ext_resource type="Texture2D" uid="uid://s3x4djsuw12u" path="res://assets/background1.png" id="2_ppgk2"]
+[ext_resource type="Texture2D" uid="uid://c7pa1md3333b4" path="res://assets/ground.png" id="3_2r41h"]
+[ext_resource type="Texture2D" uid="uid://wsfoj2d4cjwh" path="res://assets/tree-root.png" id="4_klq6b"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b121j"]
+texture = ExtResource("1_mx8sn")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8c41q"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_b121j")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olg7q"]
+texture = ExtResource("2_ppgk2")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_t1rx8"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_olg7q")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8iemx"]
+texture = ExtResource("3_2r41h")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_64w2a"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_8iemx")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fpun6"]
+texture = ExtResource("4_klq6b")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wc255"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_fpun6")
+
+[node name="Level" type="Node2D"]
+
+[node name="Background_2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAEAAAACAAAAAAABAAIAAAACAAAAAAABAAMAAAACAAAAAAABAAQAAAACAAAAAAABAAUAAAACAAAAAAADAAEAAAACAAAAAAADAAIAAAACAAAAAAADAAMAAAACAAAAAAADAAQAAAACAAAAAAADAAUAAAACAAAAAAADAAYAAAACAAAAAAABAAYAAAACAAAAAAABAAAAAAACAAAAAAADAAAAAAACAAAAAAAEAAcAAAAAAAAAAAADAAcAAAABAAAAAAACAAcAAAAAAAAAAAABAAcAAAABAAAAAAAAAAcAAAAAAAAAAAAAAAYAAAAAAAAAAAACAAYAAAAAAAAAAAACAAUAAAAAAAAAAAACAAQAAAAAAAAAAAACAAMAAAAAAAAAAAACAAIAAAAAAAAAAAACAAEAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAFAAcAAAABAAAAAAAFAAYAAAACAAAAAAAFAAUAAAACAAAAAAAFAAQAAAACAAAAAAAFAAMAAAACAAAAAAAFAAIAAAACAAAAAAAFAAEAAAACAAAAAAAFAAAAAAACAAAAAAD//wcAAAABAAAAAAD//wYAAAACAAAAAAD//wUAAAACAAAAAAD//wQAAAACAAAAAAD//wMAAAACAAAAAAD//wIAAAACAAAAAAD//wEAAAACAAAAAAD//wAAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_8c41q")
+
+[node name="Background_1" type="TileMapLayer" parent="."]
+position = Vector2(0, 22)
+tile_map_data = PackedByteArray("AAAEAAcAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAD//wcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_t1rx8")
+
+[node name="Ground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAD//wgAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_64w2a")
+
+[node name="Tree_Root" type="TileMapLayer" parent="."]
+position = Vector2(0, 23)
+tile_map_data = PackedByteArray("AAACAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_wc255")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.847059, 0.905882, 0.815686, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(8.12, 14.5588)
