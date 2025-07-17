@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cut Down That Tree"
-run/main_scene="uid://bp4k0grsg7k0v"
+run/main_scene="uid://bdnpbm4sacuv0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

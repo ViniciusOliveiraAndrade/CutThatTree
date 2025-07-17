@@ -21,8 +21,8 @@ var tree: Array[TreeNode] = []
 func _ready() -> void:
 	print("Stat game")
 	_create_tree()
-	position_player()
-	score.text=str(GameManager.score)
+	_position_player()
+	_update_score()
 
 
 func _create_tree() -> void:
@@ -61,7 +61,7 @@ func _recycle_tree() -> void:
 	tree_holder.add_child(new_tree)
 
 
-func position_player() -> void:
+func _position_player() -> void:
 	if tree[0].is_right_node_tree():
 		player.global_position = left_mark.global_position
 		player.look_right()
@@ -81,7 +81,8 @@ func _on_left_b_pressed() -> void:
 	else:
 		GameManager.score=0
 	
-	score.text=str(GameManager.score)
+	_update_score()
+
 
 func _on_right_b_pressed() -> void:
 	_recycle_tree()
@@ -93,4 +94,8 @@ func _on_right_b_pressed() -> void:
 	else:
 		GameManager.score=0
 	
+	_update_score()
+
+
+func _update_score() -> void:
 	score.text=str(GameManager.score)

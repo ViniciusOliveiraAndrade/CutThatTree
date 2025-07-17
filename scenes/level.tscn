@@ -62,9 +62,3 @@ tile_set = SubResource("TileSet_64w2a")
 position = Vector2(0, 23)
 tile_map_data = PackedByteArray("AAACAAcAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_wc255")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.847059, 0.905882, 0.815686, 1)
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(8.12, 14.5588)

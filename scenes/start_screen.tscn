@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdnpbm4sacuv0"]
+
+[ext_resource type="Script" uid="uid://b54s4r7g230hp" path="res://scripts/start_screen.gd" id="1_he1sj"]
+[ext_resource type="PackedScene" uid="uid://cpvxarrpv0j2m" path="res://scenes/Cape.tscn" id="2_r2jwc"]
+[ext_resource type="Theme" uid="uid://cy2emld5k8n06" path="res://assets/themes/button_theme.tscn.tres" id="3_hm208"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_he1sj")
+
+[node name="Level" parent="." instance=ExtResource("2_r2jwc")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(215, 416)
+zoom = Vector2(1.8, 1.8)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 300.0
+offset_right = 305.0
+offset_bottom = 553.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hm208")
+text = "Start"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_hm208")
+text = "Credits"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hm208")
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_button_down"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
