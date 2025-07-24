@@ -7,11 +7,16 @@ extends Node2D
 @export var tree_count: int = 13
 @export var move_down_duration: float = 0.2
 
+
 @onready var tree_holder: Node2D = $TreeHolder
 @onready var player: Node2D = $Player
 @onready var right_mark: Marker2D = $PlayerPositions/RightMark
 @onready var left_mark: Marker2D = $PlayerPositions/LeftMark
 @onready var score: Label = $Hud/Score
+@onready var hud_death_panel: CanvasLayer = $HudDeathPanel
+@onready var hud: CanvasLayer = $Hud
+
+@onready var last_score: Label = $HudDeathPanel/Panel/MarginContainer/VBoxContainer/LastScore
 
 
 var tree: Array[TreeNode] = []
@@ -23,6 +28,7 @@ func _ready() -> void:
 	_create_tree()
 	_position_player()
 	_update_score()
+	hud_death_panel.hide()
 
 
 func _create_tree() -> void:
@@ -79,7 +85,7 @@ func _on_left_b_pressed() -> void:
 		GameManager.score+=1
 		
 	else:
-		GameManager.score=0
+		_death()
 	
 	_update_score()
 
@@ -92,10 +98,33 @@ func _on_right_b_pressed() -> void:
 	if not tree[0].is_right_node_tree():
 		GameManager.score+=1
 	else:
-		GameManager.score=0
+		_death()
 	
 	_update_score()
 
 
 func _update_score() -> void:
 	score.text=str(GameManager.score)
+
+
+func _death() -> void:
+	last_score.text = "Score: " + str(GameManager.score)
+	
+	if GameManager.score > GameManager.highscore:
+		GameManager.highscore = GameManager.score
+		SaveLoadData.save_data()
+	
+	GameManager.score = 0
+	hud_death_panel.show()
+	hud.hide()
+	
+
+func _on_exit_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	pass
+	
+	
+
+
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()

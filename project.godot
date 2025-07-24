@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/game_manager.gd"
 BgAudio="*res://scenes/bg_audio.tscn"
+SaveLoadData="*res://scripts/save_load_data.gd"
 
 [display]
 

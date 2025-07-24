@@ -4,11 +4,13 @@ const MAIN_GAME = preload("res://scenes/main_game.tscn")
 const CHOP_1 = preload("res://assets/sounds/chop1.mp3")
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var score: Label = $CanvasLayer/Score
 
 
 func _ready() -> void:
 	BgAudio.play_music_level()
 	audio_stream_player.stream = CHOP_1
+	score.text = "Highest Score: " + str(GameManager.highscore)
 	#pass
 
 

@@ -54,5 +54,49 @@ shape = SubResource("RectangleShape2D_dugkq")
 position = Vector2(162, 416)
 zoom = Vector2(1.8, 1.8)
 
+[node name="HudDeathPanel" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="HudDeathPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HudDeathPanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HudDeathPanel/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="LastScore" type="Label" parent="HudDeathPanel/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_ipu61")
+text = "0000000"
+
+[node name="Restart" type="Button" parent="HudDeathPanel/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_ipu61")
+text = "Restart"
+
+[node name="Exit" type="Button" parent="HudDeathPanel/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_ipu61")
+text = "Exit"
+
 [connection signal="pressed" from="Hud/LeftB" to="." method="_on_left_b_pressed"]
 [connection signal="pressed" from="Hud/RightB" to="." method="_on_right_b_pressed"]
+[connection signal="pressed" from="HudDeathPanel/Panel/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="HudDeathPanel/Panel/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

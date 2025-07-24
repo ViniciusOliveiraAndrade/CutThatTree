@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdnpbm4sacuv0"]
 
 [ext_resource type="Script" uid="uid://b54s4r7g230hp" path="res://scripts/start_screen.gd" id="1_he1sj"]
-[ext_resource type="PackedScene" uid="uid://cpvxarrpv0j2m" path="res://scenes/Cape.tscn" id="2_r2jwc"]
+[ext_resource type="PackedScene" uid="uid://cpvxarrpv0j2m" path="res://scenes/cape.tscn" id="2_r2jwc"]
 [ext_resource type="Theme" uid="uid://cy2emld5k8n06" path="res://assets/themes/button_theme.tscn.tres" id="3_hm208"]
 
 [node name="StartScreen" type="Control"]
@@ -51,6 +51,17 @@ theme = ExtResource("3_hm208")
 text = "Exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 60.0
+offset_bottom = 35.0
+theme = ExtResource("3_hm208")
+theme_override_font_sizes/font_size = 16
+text = "0000000"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_button_down"]
