@@ -32,7 +32,7 @@ Branches grow on both sides — if you chop into one, it’s game over!
 
 ## 📷 Screenshots
 
-![Gameplay](screenshots/gameplay.png)
+![Gameplay](gameplay.png)
 
 
 ---
@@ -52,6 +52,7 @@ To run the game locally:
 ```bash
 git clone https://github.com/yourusername/cut-down-that-tree.git
 
+```
 Then open the project in Godot 4.4 and press Play ▶️
 
 ---
