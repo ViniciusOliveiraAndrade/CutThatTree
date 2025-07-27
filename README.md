@@ -75,4 +75,4 @@ We welcome contributions from everyone. 😊
 ## 📬 Contact
 
 If you have any questions, feel free to contact me at:
-📧 [jcodingeverything@gmail.com](jcodingeverything@gmail.com)
+📧 <jcodingeverything@gmail.com>
