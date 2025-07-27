@@ -32,7 +32,7 @@ Branches grow on both sides — if you chop into one, it’s game over!
 
 ## 📷 Screenshots
 
-![Gameplay](gameplay.png)
+![Gameplay](playstore/i2.png)
 
 
 ---
