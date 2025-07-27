@@ -60,7 +60,7 @@ Then open the project in Godot 4.4 and press Play ▶️
 ## 📄 License
 
 This project is licensed under the MIT License.
-See the [LICENSE](./LICENSE) file for details.
+See the [LICENSE](./LICENSE.txt) file for details.
 
 ---
 
